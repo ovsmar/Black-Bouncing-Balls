@@ -2,6 +2,7 @@
 
 A simple canvas animation that simulates bouncing balls with collision detection.
 
+![view](assets/balls.png)
 
 ## Getting started
 
