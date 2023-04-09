@@ -1,0 +1,14 @@
+html, body,#myCanvas {
+    margin: 0;
+    padding: 0;
+    /* background-image: url( https://www.manufosela.es/shooting_stars/stars_5.png); */
+  
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    
+    justify-content: center;
+   
+}
