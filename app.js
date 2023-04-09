@@ -1,15 +1,11 @@
-// Récupération de l'élément canvas dans la page HTML
-var canvas = document.getElementById("myCanvas");
-// Création d'un contexte de dessin en 2D pour le canvas
-var ctx = canvas.getContext("2d");
-// Récupération du bouton "add-ball" dans la page HTML
-var addBallButton = document.getElementById('add-ball');
-
-// Création d'un tableau vide pour stocker les instances de la classe Ball
-var balls = [];
+var canvas = document.getElementById("myCanvas"); // Récupération de l'élément canvas dans la page HTML
+var ctx = canvas.getContext("2d");// Création d'un contexte de dessin en 2D pour le canvas
+var addBallButton = document.getElementById('add-ball');// Récupération du bouton "add-ball" dans la page HTML
+var balls = [];// Création d'un tableau vide pour stocker les instances de la classe Ball
 
 // Définition de la classe Ball pour créer des instances de balles
 function Ball(x, y, dx, dy, radius, gradient) {
+
   // Propriétés de la balle
   this.x = x;
   this.y = y;
@@ -33,6 +29,7 @@ function Ball(x, y, dx, dy, radius, gradient) {
 
   // Méthode pour mettre à jour la position de la balle
   this.update = function () {
+
     // Rebond de la balle sur les bords du canvas
     if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
       this.dx = -this.dx; // Inversion de la vitesse horizontale si la balle touche le bord gauche ou droit du canvas
@@ -48,6 +45,7 @@ function Ball(x, y, dx, dy, radius, gradient) {
       if (this !== otherBall) {
         var distance = Math.sqrt((this.x - otherBall.x) * (this.x - otherBall.x) + (this.y - otherBall.y) * (this.y - otherBall.y));
         if (distance < this.radius + otherBall.radius) { // Vérification de la collision entre la balle actuelle et une autre balle
+
           // Calcul de l'angle de collision
           var angle = Math.atan2(otherBall.y - this.y, otherBall.x - this.x);
 
@@ -94,21 +92,27 @@ function Ball(x, y, dx, dy, radius, gradient) {
   }
 }
 
+
 // Boucle pour créer 3 balles avec des propriétés aléatoires
-for (var i = 0; i < 3; i++) {
+for (var i = 0; i < 6; i++) {
+
   // Coordonnées de la balle aléatoires
   var x = Math.random() * canvas.width;
   var y = Math.random() * canvas.height;
+
   // Vitesse de la balle aléatoire
   var dx = (Math.random() - 0.5) * 10;
   var dy = (Math.random() - 0.5) * 10;
   // Rayon de la balle aléatoire
   var radius = Math.random() * 50;
+
   // Couleurs pour le dégradé de la balle
   var startColor = [255, 0, 0]; // красный цвет
   var endColor = [0, 0, 255]; // синий цвет
+
   // Création du dégradé de la balle
   var gradient = "linear-gradient(to bottom, rgb(" + startColor.join(",") + "), rgb(" + endColor.join(",") + "))";
+
   // Ajout de la nouvelle balle à la liste des balles
   balls.push(new Ball(x, y, dx, dy, radius, gradient));
 }
