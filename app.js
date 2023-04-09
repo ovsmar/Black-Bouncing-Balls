@@ -20,8 +20,8 @@ function Ball(x, y, dx, dy, radius, gradient) {
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
     ctx.fillStyle = this.gradient;
     ctx.shadowColor = 'rgba(0,0,0,0.9)';
-    ctx.shadowOffsetX = 16;
-    ctx.shadowOffsetY = 16;
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
     ctx.shadowBlur = 30;
     ctx.fill();
   }
