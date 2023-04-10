@@ -50,14 +50,31 @@ function Ball(x, y, dx, dy, radius, gradient) {
           var angle = Math.atan2(otherBall.y - this.y, otherBall.x - this.x);
 
           // Calcul des nouvelles vitesses
+          //calcule la vitesse de la balle actuelle en fonction de ses valeurs dx et dy actuelles.
           var thisSpeed = Math.sqrt(this.dx * this.dx + this.dy * this.dy);
+
+          //calcule la vitesse d'une autre balle en fonction de ses valeurs actuelles dx et dy.
           var otherBallSpeed = Math.sqrt(otherBall.dx * otherBall.dx + otherBall.dy * otherBall.dy);
+
+          //calcule l'angle de direction de la balle actuelle en fonction de ses valeurs dx et dy actuelles à l'aide de la fonction atan2, qui renvoie l'angle entre la direction positive de l'axe x et le vecteur donné par ses composants.
           var thisAngle = Math.atan2(this.dy, this.dx);
+
+          //calcule l'angle de direction d'une autre balle en fonction de ses valeurs actuelles dx et dy de la même manière que thisAngle.
           var otherBallAngle = Math.atan2(otherBall.dy, otherBall.dx);
+
+          //définit la nouvelle vitesse d'une autre balle en fonction de la vitesse de la balle actuelle.
           var newThisSpeed = otherBallSpeed;
+
+          //calcule la nouvelle vitesse horizontale de la balle actuelle en fonction de sa nouvelle vitesse et de son angle de direction à l'aide des fonctions cos et sin.
           var newOtherBallSpeed = thisSpeed;
+
+          //calcule la nouvelle vitesse verticale de la balle actuelle en fonction de sa nouvelle vitesse et de son angle de cap à l'aide des fonctions cos et sin.
           var newThisDx = newThisSpeed * Math.cos(thisAngle + angle);
+
+          //calcule la nouvelle vitesse horizontale d'une autre balle en fonction de sa nouvelle vitesse et de son angle de direction à l'aide des fonctions cos et sin.
           var newThisDy = newThisSpeed * Math.sin(thisAngle + angle);
+
+          //calcule la nouvelle vitesse verticale d'une autre balle en fonction de sa nouvelle vitesse et de son angle de cap à l'aide des fonctions cos et sin.
           var newOtherBallDx = newOtherBallSpeed * Math.cos(otherBallAngle + angle);
           var newOtherBallDy = newOtherBallSpeed * Math.sin(otherBallAngle + angle);
 
@@ -93,7 +110,7 @@ function Ball(x, y, dx, dy, radius, gradient) {
 }
 
 
-// Boucle pour créer 3 balles avec des propriétés aléatoires
+// Boucle pour créer 6 balles avec des propriétés aléatoires
 for (var i = 0; i < 6; i++) {
 
   // Coordonnées de la balle aléatoires
