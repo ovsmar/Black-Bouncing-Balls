@@ -11,3 +11,10 @@ html, body,#myCanvas {
     justify-content: center;
    
 }
+
+#add-ball{
+    border: none;
+    border-radius: 0.25em;
+    background-color: #eee;
+    cursor: pointer;
+}
